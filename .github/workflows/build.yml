@@ -14,10 +14,10 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-      - name: Checkout LFS
-        run: |
-          git lfs version
-          git lfs pull
+      #- name: Checkout LFS
+      #  run: |
+      #    git lfs version
+      #    git lfs pull
       - name: build
         run: |
           /flax/Binaries/Editor/Linux/Release/FlaxEditor -project ./ -std -null -headless -build "Release.Linux_x64"
