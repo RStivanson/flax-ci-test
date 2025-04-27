@@ -13,7 +13,7 @@ jobs:
 
     runs-on: ubuntu-latest
     container:
-      image: registry.gitlab.com/brmassa/flax-container:linux_amd64-1.9.6605
+      image: ghcr.io/rstivanson/flax-ci-test:1.10
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
