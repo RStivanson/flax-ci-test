@@ -12,7 +12,6 @@ public class Game : GameModule
         Tags["Network"] = string.Empty; // Hint usage of networking features in code (eg. Replication/RPC)
         options.ScriptingAPI.IgnoreMissingDocumentationWarnings = true;
         options.PublicDependencies.Add("ArizonaFramework");
-        options.PublicDependencies.Add("UnitTests");
         options.PrivateDependencies.Add("Networking");
     }
 }
