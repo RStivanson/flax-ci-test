@@ -1,0 +1,29 @@
+name: test
+on: [push, pull_request]
+
+env:
+  FLAX_VERSION: 1
+
+jobs:
+  game:
+    name: game
+
+    runs-on: ubuntu-latest
+    container:
+      image: registry.gitlab.com/brmassa/flax-container:linux_amd64-1.9.6605
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Checkout LFS
+        run: |
+          git lfs version
+          git lfs pull
+      - name: build
+        run: |
+          /flax/Binaries/Editor/Linux/Release/FlaxEditor -project ./ -std -null -headless -build "Release.Linux_x64"
+
+          # Flax do not return fail code when it fails to compile. So we have to check if the output is there
+          if [[ ! -d "Output" ]]; then
+            echo "App was not created."
+            exit 1
+          fi
