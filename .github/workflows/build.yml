@@ -15,7 +15,9 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
       - name: Initialize submodules
-        run: git submodule update --init --recursive
+        run: |
+          git config --global --add safe.directory $(pwd)
+          git submodule update --init --recursive
       #- name: Checkout LFS
       #  run: |
       #    git lfs version
