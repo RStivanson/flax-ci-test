@@ -7,6 +7,7 @@ public class GameEditorTarget : GameProjectEditorTarget
     {
         base.Init();
 
+        Modules.Add(nameof(UnitTests));
         Modules.Add("Game");
         Modules.Add("ArizonaFramework");
     }
